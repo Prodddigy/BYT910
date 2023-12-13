@@ -5,7 +5,7 @@ public class LaunchingTask {
     private final LocalDateTime StartDateTime;
    private LocalDateTime EndDateTime =null;
 
-   private Duration duration;
+   private Duration duration=null;
 
    LaunchingTask()
    {
@@ -35,7 +35,10 @@ public class LaunchingTask {
     }
     public void calculateTaskDuration()
     {
-        this.duration = Duration.between(StartDateTime,EndDateTime);
+        if(EndDateTime!=null)
+        {
+            this.duration = Duration.between(StartDateTime, EndDateTime);
+        }
     }
 
 
