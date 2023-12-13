@@ -66,6 +66,46 @@ public class User {
     }
 
     /**
+     * Method setting the username for this User
+     * @param username New Username to be set
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    /**
+     * Method setting the firstname for this User
+     * @param firstname New Firstname to be set
+     */
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    /**
+     * Method setting the lastname for this User
+     * @param lastname New Lastname to be set
+     */
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    /**
+     * Method setting the email for this User
+     * @param email New email address to be set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * Method setting the password for this User
+     * @param password New password to be set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
      * Method meant for testing purposes. Checks if the task exists for this user
      * @param taskId Id of the task
      * @return boolean, whether task exists or not
@@ -121,6 +161,30 @@ public class User {
         }
 
         /**
+         * Method setting the title of this Task
+         * @param title New title to be set
+         */
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        /**
+         * Method setting the description of this Task
+         * @param description New description to be set
+         */
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
+        /**
+         * Method setting the time of this Task
+         * @param time New time to be set
+         */
+        public void setTime(String time) {
+            this.time = time;
+        }
+
+        /**
          * Shows a list of tasks of the User. Method prints the information about each task one after another.
          */
         public void Show_list_of_Tasks(){
@@ -138,18 +202,6 @@ public class User {
             }
             else{
                 User.this.taskList.put(getTitle(),this);
-            }
-        }
-
-        /**
-         * Removes a Task. Method removes a Task from a hashtable, distinguished by the task id
-         */
-        public void remove_a_Task(){
-            if(!User.this.taskList.containsKey(getTitle())){
-                System.err.println("Task doesn't exist...");
-            }
-            else {
-                User.this.taskList.remove(getTitle());
             }
         }
 
@@ -212,6 +264,22 @@ public class User {
             }
 
             /**
+             * Method setting the title of this Subask
+             * @param title New title to be set
+             */
+            public void setTitle(String title) {
+                this.title = title;
+            }
+
+            /**
+             * Method setting the description of this Subtask
+             * @param description New description to be set
+             */
+            public void setDescription(String description) {
+                this.description = description;
+            }
+
+            /**
              * Creates a new Task. Method puts a new Task in a hashtable, distinguished by the task id
              */
             public void create_a_Subtask(){
@@ -220,18 +288,6 @@ public class User {
                 }
                 else{
                     Task.this.subtaskList.put(getTitle(),this);
-                }
-            }
-
-            /**
-             * Removes a Task. Method removes a Task from a hashtable, distinguished by the task id
-             */
-            public void remove_a_Subtask(){
-                if(!Task.this.subtaskList.containsKey(getTitle())){
-                    System.err.println("Subtask doesn't exist...");
-                }
-                else {
-                    Task.this.subtaskList.remove(getTitle());
                 }
             }
 

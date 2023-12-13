@@ -61,4 +61,53 @@ public class UserTest {
         assertEquals("yoda123",user2.getPassword());
     }
 
+    /**
+     * Test if setter function sets the correct username of the User
+     */
+    @Test
+    public void testSetUsername(){
+        assertEquals("Admin",user1.getUsername());
+        user1.setUsername("Alvin");
+        assertEquals("Alvin",user1.getUsername());
+    }
+
+    /**
+     * Test if setter function sets the correct firstname of the User
+     */
+    @Test
+    public void testSetFirstname(){
+        assertEquals("Albert",user1.getFirstname());
+        user1.setFirstname("Alberto");
+        assertEquals("Alberto",user1.getFirstname());
+    }
+
+    /**
+     * Test if setter function sets the correct lastname of the User
+     */
+    @Test
+    public void testSetLastname(){
+        assertEquals("Einstein",user1.getLastname());
+        user1.setLastname("Einshtin");
+        assertEquals("Einshtin",user1.getLastname());
+    }
+
+    /**
+     * Test if setter function sets the correct email of the User
+     */
+    @Test
+    public void testSetEmail(){
+        assertEquals("albertein@gmail.com",user1.getEmail());
+        user1.setEmail("albertein11@gmail.com");
+        assertEquals("albertein11@gmail.com",user1.getEmail());
+    }
+
+    /**
+     * Test if setter function sets the correct password of the User
+     */
+    @Test
+    public void testSetPassword(){
+        assertEquals("Emc2",user1.getPassword());
+        user1.setPassword("Germany2");
+        assertEquals("Germany2",user1.getPassword());
+    }
 }

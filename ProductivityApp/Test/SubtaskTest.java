@@ -39,6 +39,26 @@ public class SubtaskTest {
     }
 
     /**
+     * Testing if setter function sets the correct title of the Subtask
+     */
+    @Test
+    public void testSetTitle(){
+        assertEquals("task 9-10",subtask1.getTitle());
+        subtask1.setTitle("task 11");
+        assertEquals("task 11",subtask1.getTitle());
+    }
+
+    /**
+     * Testing if setter function sets the correct description of the Subtask
+     */
+    @Test
+    public void testSetDescription(){
+        assertEquals("finish making the junit tests",subtask1.getDescription());
+        subtask1.setDescription("finish making the classes");
+        assertEquals("finish making the classes",subtask1.getDescription());
+    }
+
+    /**
      * Testing if the method correctly creates a new Subtask
      */
     @Test
@@ -51,16 +71,6 @@ public class SubtaskTest {
         assertTrue(task1.subtaskExists("presentation"));
 
 
-    }
-
-    /**
-     * Testing if the method correctly removes a Subtask
-     */
-    @Test
-    public void testRemoveSubtask(){
-        assertTrue(task1.subtaskExists("task 9-10"));
-        subtask1.remove_a_Subtask();
-        assertFalse(task1.subtaskExists("task 9-10"));
     }
 
 }

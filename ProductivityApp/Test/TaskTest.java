@@ -51,6 +51,36 @@ public class TaskTest {
     }
 
     /**
+     * Testing if setter function sets the correct title of the Task
+     */
+    @Test
+    public void testSetTitle(){
+        assertEquals("Homework",task1.getTitle());
+        task1.setTitle("Schoolwork");
+        assertEquals("Schoolwork",task1.getTitle());
+    }
+
+    /**
+     * Testing if setter function sets the correct description of the Task
+     */
+    @Test
+    public void testSetDescription(){
+        assertEquals("finish the BYT assignment",task1.getDescription());
+        task1.setDescription("finish the BYT tasks");
+        assertEquals("finish the BYT tasks",task1.getDescription());
+    }
+
+    /**
+     * Testing if setter function sets the correct time of the Task
+     */
+    @Test
+    public void testSetTime(){
+        assertEquals("2h",task1.getTime());
+        task1.setTime("4h");
+        assertEquals("4h",task1.getTime());
+    }
+
+    /**
      * Testing if the method shows the list of tasks correctly
      */
     @Test
@@ -71,16 +101,6 @@ public class TaskTest {
 
         User.Task task4 = user2. new Task("physical exercises","do some push ups and sit ups","0.5h");
         assertTrue(user2.taskExists("physical exercises"));
-    }
-
-    /**
-     * Testing if the method correctly removes a Task
-     */
-    @Test
-    public void testRemoveTask(){
-        assertTrue(user1.taskExists("Homework"));
-        task1.remove_a_Task();
-        assertFalse(user1.taskExists("Homework"));
     }
 
     /**
