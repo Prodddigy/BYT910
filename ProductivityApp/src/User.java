@@ -187,10 +187,11 @@ public class User {
         /**
          * Shows a list of tasks of the User. Method prints the information about each task one after another.
          */
-        public void Show_list_of_Tasks(){
+        public Hashtable<String, Task> Show_list_of_Tasks(){
             for(String task:User.this.taskList.keySet()){
                 System.out.println(User.this.taskList.get(task));
             }
+            return User.this.taskList;
         }
 
         /**
@@ -208,8 +209,10 @@ public class User {
         /**
          * Method shows the information that the Task has started
          */
-        public void start_a_Task(){
-            System.out.println("Task has started! Remaining time: "+getTime());
+        public String start_a_Task(){
+            String str="Task has started! Remaining time: "+getTime();
+            System.out.println(str);
+            return str;
         }
 
         @Override
