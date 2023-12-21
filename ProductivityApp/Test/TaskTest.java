@@ -3,6 +3,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Hashtable;
+
 public class TaskTest {
     User user1, user2;
     User.Task task1, task2, task3;
@@ -84,9 +86,11 @@ public class TaskTest {
      * Testing if the method shows the list of tasks correctly
      */
     @Test
-    public void testShowListOfTasks(){//TODO
-        //to fix
-        assertEquals("Homework",task1.getTitle());
+    public void testShowListOfTasks(){
+        Hashtable<String, User.Task> user1list=task1.Show_list_of_Tasks();
+        assertTrue(user1list.containsKey("Homework"));
+        assertTrue(user1list.containsKey("Japanese study"));
+        assertFalse(user1list.containsKey("Start BYT project"));
     }
 
     /**
@@ -107,9 +111,8 @@ public class TaskTest {
      * Testing if the method starts the task correctly
      */
     @Test
-    public void testStartTask(){//TODO
-        //to fix
-        assertEquals("Homework",task1.getTitle());
+    public void testStartTask(){
+        assertEquals("Task has started! Remaining time: 2h",task1.start_a_Task());
     }
 
 }
