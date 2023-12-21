@@ -13,8 +13,15 @@ public class LaunchingTaskTest {
     @Before
     public void setUp()
     {
-         launchedTask = new LaunchingTask();
+         launchedTask = new LaunchingTask("10h");
          localDateTime = LocalDateTime.now();
+    }
+
+
+    @Test
+    public void setTime()
+    {
+
     }
 
     @Test
