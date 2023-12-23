@@ -9,6 +9,8 @@ public class TaskTest {
     User user1, user2;
     User.Task task1, task2, task3;
 
+    LaunchingTask launchedTask;
+
     /**
      * Setting up the components to be used in the Tests
      * @throws Exception
@@ -20,6 +22,8 @@ public class TaskTest {
         task1 = user1. new Task("Homework","finish the BYT assignment","2h");
         task2 = user1. new Task("Japanese study","Learn 10 new words","1.5h");
         task3 = user2. new Task("Start BYT project","start preparing for the project","3h");
+
+        launchedTask = new LaunchingTask("10h");
     }
 
     /**
@@ -80,6 +84,15 @@ public class TaskTest {
         assertEquals("2h",task1.getTime());
         task1.setTime("4h");
         assertEquals("4h",task1.getTime());
+    }
+
+    /**
+     * Testing if method sets and gets the Launching task properly
+     */
+    @Test
+    public void testSetGetLaunchingTask(){
+        task1.setLaunchingTask(launchedTask);
+        assertEquals(launchedTask,task1.getLaunchingTask());
     }
 
     /**

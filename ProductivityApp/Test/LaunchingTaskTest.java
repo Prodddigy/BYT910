@@ -10,18 +10,46 @@ public class LaunchingTaskTest {
 
     LaunchingTask launchedTask;
     LocalDateTime localDateTime;
+    User user1;
+    User.Task task1;
+
     @Before
     public void setUp()
     {
          launchedTask = new LaunchingTask("10h");
          localDateTime = LocalDateTime.now();
+
+        user1=new User("Admin","Albert","Einstein","albertein@gmail.com","Emc2");
+        task1 = user1. new Task("Homework","finish the BYT assignment","2h");
+
     }
 
 
     @Test
     public void setTime()
     {
+        launchedTask.setTime("11h");
+        assertEquals("11h",launchedTask.getTime());
+    }
 
+    @Test
+    public void getTime()
+    {
+        assertEquals("10h",launchedTask.getTime());
+    }
+
+    @Test
+    public void getSetUser()
+    {
+        launchedTask.setUser(user1);
+        assertEquals(user1,launchedTask.getUser());
+    }
+
+    @Test
+    public void getSetTask()
+    {
+        launchedTask.setTask(task1);
+        assertEquals(task1,launchedTask.getTask());
     }
 
     @Test

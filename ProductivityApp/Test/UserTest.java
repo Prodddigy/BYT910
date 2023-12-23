@@ -5,6 +5,7 @@ import org.junit.Test;
 
 public class UserTest {
     User user1, user2;
+    LaunchingTask launchedTask;
 
     /**
      * Setting up the components to be used in the Tests
@@ -14,6 +15,8 @@ public class UserTest {
     public void setUp() throws Exception {
         user1=new User("Admin","Albert","Einstein","albertein@gmail.com","Emc2");
         user2=new User("tester","Luke","Skywalker","jediforce@gmail.com","yoda123");
+
+        launchedTask = new LaunchingTask("10h");
     }
 
     /**
@@ -110,4 +113,15 @@ public class UserTest {
         user1.setPassword("Germany2");
         assertEquals("Germany2",user1.getPassword());
     }
+
+    /**
+     * Test if method adds and gets launching task properly
+     */
+    @Test
+    public void testAddGetLaunchingTask(){
+        user1.addLaunchingTask(launchedTask);
+        assertEquals(launchedTask,user1.getLaunchingTask(0));
+    }
+
+
 }

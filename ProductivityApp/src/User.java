@@ -1,12 +1,15 @@
+import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 
-public class User {
+public class User extends Guest{
     private String username;
     private String firstname;
     private String lastname;
     private String email;
     private String password;
 
+    private List<LaunchingTask> launchingTaskList= new ArrayList<>();
     private Hashtable<String, Task> taskList= new Hashtable<String, Task>();
 
     /**
@@ -18,6 +21,7 @@ public class User {
      * @param password Password of this User
      */
     public User(String username, String firstname, String lastname, String email, String password) {
+        super();
         this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -106,6 +110,22 @@ public class User {
     }
 
     /**
+     * Method adding LaunchingTask the list of Launching Tasks
+     * @param launchingTask New LaunchingTask to be added to the List
+     */
+    public void addLaunchingTask(LaunchingTask launchingTask){
+        launchingTaskList.add(launchingTask);
+    }
+
+    /**
+     * Method retrieving the LaunchingTask from the List
+     * @param launchingTaskId LaunchingTask id distinguishing the desired LaunchingTask
+     */
+    public LaunchingTask getLaunchingTask(int launchingTaskId){
+        return launchingTaskList.get(launchingTaskId);
+    }
+
+    /**
      * Method meant for testing purposes. Checks if the task exists for this user
      * @param taskId Id of the task
      * @return boolean, whether task exists or not
@@ -116,9 +136,11 @@ public class User {
 
     //Inner class Task. It is a part/composition of the User.
     public class Task {
-        String title;
-        String description;
-        String time;
+        private String title;
+        private String description;
+        private String time;
+
+        private LaunchingTask launchingTask;
 
         private Hashtable<String, Subtask> subtaskList= new Hashtable<String, Subtask>();
 
@@ -182,6 +204,22 @@ public class User {
          */
         public void setTime(String time) {
             this.time = time;
+        }
+
+        /**
+         * Method getting the LaunchingTask of this Task
+         * @return LaunchingTask of this Task
+         */
+        public LaunchingTask getLaunchingTask() {
+            return launchingTask;
+        }
+
+        /**
+         * Method setting the LaunchingTask of this Task
+         * @param launchingTask New description to be set
+         */
+        public void setLaunchingTask(LaunchingTask launchingTask) {
+            this.launchingTask = launchingTask;
         }
 
         /**

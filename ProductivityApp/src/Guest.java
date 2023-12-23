@@ -15,6 +15,8 @@ public class Guest {
         this.password = password;
     }
 
+    public Guest() {}
+
 
     public String getUsername() {
         return username;
