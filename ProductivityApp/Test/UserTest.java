@@ -3,9 +3,14 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserTest {
-    User user1, user2;
+    User user1, user2, user3;
     LaunchingTask launchedTask;
+
+    public List<User> registeredUsers;
 
     /**
      * Setting up the components to be used in the Tests
@@ -15,8 +20,12 @@ public class UserTest {
     public void setUp() throws Exception {
         user1=new User("Admin","Albert","Einstein","albertein@gmail.com","Emc2");
         user2=new User("tester","Luke","Skywalker","jediforce@gmail.com","yoda123");
-
+        user3 = new User("random", "John", "Doe", "johndoe@gmail.com", "killme");
         launchedTask = new LaunchingTask("10h");
+
+        registeredUsers = new ArrayList<User>();
+        registeredUsers.add(user1);
+        registeredUsers.add(user2);
     }
 
     /**
@@ -121,6 +130,25 @@ public class UserTest {
     public void testAddGetLaunchingTask(){
         user1.addLaunchingTask(launchedTask);
         assertEquals(launchedTask,user1.getLaunchingTask(0));
+    }
+
+    /**
+     * Test if the login function works properly
+     * One login that uses correct data and on that uses false ones
+     */
+    @Test
+    public void testLogin(){
+        assertEquals(user1,User.login("Admin","Emc2", registeredUsers));
+        assertFalse(user2.equals(User.login("Admin","Emc2", registeredUsers)));
+    }
+    /**
+     * Test if register function adds Guests to registeredGuests list
+     */
+    @Test
+    public void testRegister(){
+        User.register(user3, registeredUsers);
+        assertTrue(user3.equals(registeredUsers.get(2)));
+        assertFalse(user3.equals(registeredUsers.get(1)));
     }
 
 

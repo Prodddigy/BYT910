@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
-public class User extends Guest{
+public class User {
     private String username;
     private String firstname;
     private String lastname;
@@ -21,7 +21,7 @@ public class User extends Guest{
      * @param password Password of this User
      */
     public User(String username, String firstname, String lastname, String email, String password) {
-        super();
+
         this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -132,6 +132,21 @@ public class User extends Guest{
      */
     public boolean taskExists(String taskId){
         return taskList.containsKey(taskId);
+    }
+
+    public static User login(String enteredUsername, String enteredPassword, List<User> registeredUsers) {
+        for (User user : registeredUsers) {
+            if (user.getUsername().equals(enteredUsername) && user.getPassword().equals(enteredPassword)) {
+                System.out.println("Login successful");
+                return user;
+            }
+        }
+        System.out.println("Login failed. Invalid username or password.");
+        return null;
+    }
+    public static void register(User newUser, List<User> registeredUsers) {
+        registeredUsers.add(newUser);
+        System.out.println("Registration successful");
     }
 
     //Inner class Task. It is a part/composition of the User.
